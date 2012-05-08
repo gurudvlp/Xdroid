@@ -1,0 +1,55 @@
+Xdroid - Remote control and input device for the X Windows
+Copyright (C) 2012 Brian Murphy
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+
+Feel free to contact me with any questions, comments, suggestions, or whatever
+at gurudvlp@gmail.com, or visit the forums at www.gurudigitalsolutions.com.
+
+-------------------------------------------------------------------------------
+
+Xdroid is a remote control for your Linux box for Android devices. It logs in securely, and displays the remote desktop 
+on your phone or tablet. You can switch work spaces, manipulate windows, and make your computer do magic without ever 
+touching the keyboard or mouse.
+
+Xdroid can be used with multiple window managers, and can be used over the internet from remote locations. So far, it has 
+been tested with xfwm, Compiz and Xmonad. Feel free to update me if you get it to work properly with other window managers. 
+
+-------------------------------------------------------------------------------
+
+Dependencies:
+
+    php5-cli
+    php5-gd
+    scrot
+    xautomation
+    xdotool
+    wmctrl
+
+-------------------------------------------------------------------------------
+
+Please check the FAQ for Xdroid at www.gurudigitalsolutions.com/xdroid, or
+visit our forums at www.gurudigitalsolutions.com/gforum for more information.
+
+-------------------------------------------------------------------------------
+
+Mar 17, 2012:
+The newest version of Xdroid contains the server-side scripts as a resource in the APK package file, so you will only need 
+to download that one file. I have also introduced a TrackPad mode that allows you to use the touch screen on your phone or 
+tablet as a track pad similar to a laptop's. Mouse movement is relative, and you are fully able to click, right click, and 
+scroll.
+
+-------------------------------------------------------------------------------
+
