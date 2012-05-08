@@ -1,0 +1,93 @@
+#!/usr/bin/php
+<?/////////////////////////////////////////////////////////////////////////////
+//
+//	Xdroid-cli Script
+//
+//	This script provides command-line access for the Xdroid tool.
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+//	Copyright 2012, Brian Murphy
+//	www.gurudigitalsolutions.com
+//
+///////////////////////////////////////////////////////////////////////////////
+//
+//	Xdroid Version: 20120317
+//	Leave the above line alone if you want the Xdroid app to automatically
+//	check the version of the scripts.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+if(count($argv) < 2) { Help(); }
+require_once("xdroid.php");
+$Xdroid = new xdroid();
+
+$command = strtolower($argv[1]);
+if($command == "getconfig") { GetConfig(); }
+elseif($command == "windowlist") { WindowList(); }
+elseif($command == "desktoplist") { }
+elseif($command == "closewindow") { $Xdroid->CloseWindow($argv[2]); }
+elseif($command == "fullscreen") { $Xdroid->FullScreen($argv[2]); }
+elseif($command == "maximize") { $Xdroid->MaximizeWindow($argv[2]); }
+elseif($command == "focus") { $Xdroid->Focus($argv[2]); }
+elseif($command == "getmouseposition") { $mc = $Xdroid->GetMousePosition(); echo $mc['x']." ".$mc['y']; }
+elseif($command == "setmouseposition") { $Xdroid->SetMousePosition($argv[2], $argv[3]); }
+elseif($command == "setmousepositionr") { $Xdroid->SetMousePositionR($argv[2], $argv[3]); }
+elseif($command == "clickmouse") { $Xdroid->ClickMouse($argv[2], $argv[3]); }
+elseif($command == "gotodesktop") { $Xdroid->FocusOnDesktop($argv[2]); }
+elseif($command == "desktopthumbnail") { $Xdroid->DesktopThumbnail($argv[2]); }
+elseif($command == "windowthumbnail") { $Xdroid->WindowThumbnail($argv[2], $argv[3], $argv[4], $argv[5], $argv[6], $argv[7]); }
+else { }
+
+function Help()
+{
+	echo "Xdroid v0.0.1\n";
+	echo "Copyright 2012 Brian Murphy\n";
+	echo "  www.gurudigitalsolutions.com\n\n";
+	echo "USAGE:\n";
+	echo "\txdroid-cli <command> [OPTIONS]\n\n";
+	echo "COMMANDS:\n";
+	echo "\t getconfig\n";
+	echo "\t windowlist\n";
+	echo "\t desktoplist\n";
+	echo "\t closewindow [windowid]\n";
+	echo "\t fullscreen [windowid]\n";
+	echo "\t focus [windowid]\n";
+	echo "\t getmouseposition\n";
+	echo "\t setmouseposition [x] [y]\n";
+	echo "\t clickmouse [button]\n";
+	echo "\t gotodesktop\n";
+	exit(0);
+}
+
+function GetConfig()
+{
+	global $Xdroid;
+	echo "ScreenWidth: ".$Xdroid->GetDesktopWidth()."\n";
+	echo "ScreenHeight: ".$Xdroid->GetDesktopHeight()."\n";
+	echo "DesktopCount: ".$Xdroid->GetDesktopCount()."\n";
+}
+
+function WindowList()
+{
+	global $Xdroid;
+	$wl = $Xdroid->GetWindowList();
+	for($epart = 0; $epart < count($wl); $epart++)
+	{
+
+			echo $wl[$epart]['windowid']."\t";
+			echo $wl[$epart]['desktopid']."\t";	//	DesktopID
+			//echo $tprts[0]."\t".$tprts[1]."\t";
+			echo $wl[$epart]['windowx']."\t";
+			echo $wl[$epart]['windowy']."\t";
+			echo $wl[$epart]['width']."\t";
+			echo $wl[$epart]['height']."\t";
+			echo $wl[$epart]['desktopname']."\t";
+			echo $wl[$epart]['windowname']."\n";
+
+	}
+}
+
+
+
+?>
